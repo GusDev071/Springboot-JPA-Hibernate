@@ -23,7 +23,10 @@ public class SpringbootJpaApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		List<Person> persons = (List<Person>) personRepository.findAll();
+		/* List<Person> persons = (List<Person>) personRepository.findAll(); */
+		/* List<Person> persons = personRepository.findByProgrammingLanguage("Java"); */  //Manda a llamar la query hecha por hibernate, que es la que se hace por defecto, y que se encuentra en el repositorio PersonRepository.java
+		/* List<Person> persons = personRepository.findByProgrammingLanguageAndName("Java", "Andres"); */
+		List<Person> persons = personRepository.findByLastname("Gomez");
 
 
 		persons.stream().forEach(person -> 
